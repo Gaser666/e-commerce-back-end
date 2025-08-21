@@ -1,4 +1,5 @@
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 import { userModel } from "../../../db/models/user-model.js";
 const getAllUsers = async (req, res) => {
     const users = await userModel.find();
@@ -29,9 +30,10 @@ const loginUser = async (req, res) => {
             message: "emial or password is incorrect",
         });
     }
+    const token = jwt.sign({ id: exist.id, role: exist.role }, "our_secret_key");
     res.json({
         message: `Welcocme ${exist.name}`
-    });
+    }, token);
 
 }
 const updateUser = async (req, res) => {
