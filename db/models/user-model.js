@@ -8,6 +8,15 @@ const userSchema = new Schema({
         enum: ["user", "admin"],
         default: "user"
     },
+    cart: [
+        {
+            product: {
+                type: Schema.Types.ObjectId,
+                ref: "Product",
+            },
+            qty: Number,
+        }
+    ],
     isConfirmed: {
         type: Boolean,
         default: false

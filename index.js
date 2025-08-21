@@ -2,6 +2,7 @@ import express from 'express';
 import { dbConnection } from './db/db-connection.js';
 import { userRoutes } from './src/modules/user/user-routes.js';
 const app = express();
+app.use(express.json());
 app.use(userRoutes);
 
 dbConnection
