@@ -1,6 +1,8 @@
 import bcrypt from "bcrypt";
+import { dotenv } from "dotenv";
 import jwt from "jsonwebtoken";
 import { userModel } from "../../../db/models/user-model.js";
+dotenv.config();
 const getAllUsers = async (req, res) => {
     const users = await userModel.find();
     res.json({
@@ -30,7 +32,7 @@ const loginUser = async (req, res) => {
             message: "emial or password is incorrect",
         });
     }
-    const token = jwt.sign({ id: exist.id, role: exist.role }, "our_secret_key");
+    const token = jwt.sign({ id: exist.id, role: exist.role }, process.env.SECRET_KEY);
     res.json({
         message: `Welcocme ${exist.name}`
     }, token);
@@ -55,7 +57,7 @@ const deleteUser = async (req, res) => {
 const verifyAccount = async (req, res) => {
     let { email } = req.params
 
-    jwt.verify(email, "NTIG13Mail", async (err, decoded) => {
+    jwt.verify(email, process.env.SECRET_KEY, async (err, decoded) => {
 
 
         if (err) return res.json({ message: "invalid token", err })

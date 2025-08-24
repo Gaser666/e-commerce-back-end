@@ -15,5 +15,13 @@ const createProduct = async (req, res) => {
         product: newProduct,
     });
 }
-export { createProduct, getAllProducts };
+const deleteProduct = async (req, res) => {
+    let { id } = req.params;
+    const deletedProduct = await productModel.findByIdAndDelete(id);
+    res.json({
+        message: "Product deleted successfully",
+        deletedProduct: deletedProduct,
+    });
+}
+export { createProduct, deleteProduct, getAllProducts };
 

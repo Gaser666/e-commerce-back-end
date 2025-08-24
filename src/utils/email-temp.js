@@ -1,6 +1,8 @@
+import dotenv from "dotenv";
 import jwt from "jsonwebtoken";
+dotenv.config();
 export const emailTemp = (email) => {
-    const token = jwt.sign({ email: email }, "our_secret_key");
+    const token = jwt.sign({ email: email }, process.env.SECRET_KEY);
     return `
 <!--
 * This email was built using Tabular.

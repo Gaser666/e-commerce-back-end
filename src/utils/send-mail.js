@@ -2,7 +2,8 @@
 
 import nodemailer from "nodemailer";
 import { emailTemp } from "./email-temp.js";
-
+import dotenv from "dotenv";
+dotenv.config();
 
 
 // Create a test account or replace with real credentials.
@@ -11,7 +12,7 @@ const transporter = nodemailer.createTransport({
 
     auth: {
         user: "gasryousefsalah@gmail.com",
-        pass: "zyzw iqns vvty evbb", //from google app password, must enable 2-way verification
+        pass: process.env.APP_PASSWORD, //from google app password, must enable 2-way verification
     },
     tls: {
         rejectUnauthorized: false
