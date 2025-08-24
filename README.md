@@ -13,7 +13,7 @@ Built as a learning project to practice backend development with **REST APIs**.
 - Product Management  
   - Create, Update, Delete Products  
   - Get all products / single product  
-- Orders (Optional if you added)  
+- Orders
   - Place an order  
   - Manage user orders  
 - MongoDB database integration  
