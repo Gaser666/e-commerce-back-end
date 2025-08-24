@@ -32,26 +32,14 @@ Built as a learning project to practice backend development with **REST APIs**.
 
 ## ⚙️ Installation & Setup
 
-1. Clone the repo  
+
+1. **Clone the repository**
    ```bash
    git clone https://github.com/your-username/ecommerce-api.git
    cd ecommerce-api
-Install dependencies
+   npm install
+   MONGO_URI=your_mongodb_url
+   PORT=3000
+   
 
-bash
-Copy
-Edit
-npm install
-Create a .env file and add your MongoDB connection string:
 
-ini
-Copy
-Edit
-MONGO_URI=your_mongodb_url
-PORT=5000
-Run the project
-
-bash
-Copy
-Edit
-npm run dev
