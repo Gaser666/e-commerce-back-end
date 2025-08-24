@@ -52,5 +52,17 @@ const deleteUser = async (req, res) => {
         deletedUser: deletedUser,
     });
 }
-export { deleteUser, getAllUsers, loginUser, registerUser, updateUser };
+const verifyAccount = async (req, res) => {
+    let { email } = req.params
+
+    jwt.verify(email, "NTIG13Mail", async (err, decoded) => {
+
+
+        if (err) return res.json({ message: "invalid token", err })
+        await userModel.findOneAndUpdate({ email: decoded.email }, { isConfirmed: true })
+        res.json({ message: "confirmed successfully" })
+    })
+}
+
+export { deleteUser, getAllUsers, loginUser, registerUser, updateUser, verifyAccount };
 

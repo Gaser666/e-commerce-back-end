@@ -8,10 +8,12 @@ const getAllProducts = async (req, res) => {
     });
 }
 const createProduct = async (req, res) => {
-    const newProduct = await productModel.create(req.body);
+    const newProduct = await productModel.insertOne(req.body);
+    console.log(newProduct);
     res.json({
         message: "Product created successfully",
         product: newProduct,
     });
 }
-export { getAllProducts, createProduct };
+export { createProduct, getAllProducts };
+

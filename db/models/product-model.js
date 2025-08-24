@@ -1,5 +1,5 @@
 import mongoose, { Schema } from "mongoose";
-const productSchema = Schema({
+const productSchema = new Schema({
     title: String,
     description: String,
     price: Number,
