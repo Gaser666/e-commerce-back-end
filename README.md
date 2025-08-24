@@ -35,7 +35,7 @@ Built as a learning project to practice backend development with **REST APIs**.
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/ecommerce-api.git
+   git clone https://github.com/Gaser666/e-commerce-back-end.git
    cd ecommerce-api
    npm install
    MONGO_URI=your_mongodb_url
